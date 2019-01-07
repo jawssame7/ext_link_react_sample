@@ -23,13 +23,24 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
 
     html: [
         '<div>hoge</div>',
-        '<div id="like_button_container"></div>'
+        //'<div id="like_button_container"></div>'
+        '<p>',
+        '<div class="like_button_container" data-commentid="1"></div>',
+        '</p>',
+        '<p>',
+        'This is the second comment.',
+        '<div class="like_button_container" data-commentid="2"></div>',
+        '</p>',
+        '<p>',
+        'This is the third comment.',
+        '<div class="like_button_container" data-commentid="3"></div>',
+        '</p>'
     ],
 
     afterRender: function () {
         this.callParent(arguments);
 
-        var likeButton = Ext.require('ExtLinkReactSample.mixin.LikeButton');
+        var likeButton = Ext.require('ExtLinkReactSample.mixin.LikeButton2');
 
     }
 
