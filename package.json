@@ -1,0 +1,10 @@
+{
+  "name": "ext_link_react_sample",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-widgets": "^4.4.8"
+  }
+}
