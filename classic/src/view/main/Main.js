@@ -14,7 +14,8 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
     requires: [
         'ExtLinkReactSample.view.sample.Panel',
         'ExtLinkReactSample.view.sample2.Panel',
-        'ExtLinkReactSample.view.sample3.Panel'
+        'ExtLinkReactSample.view.sample3.Panel',
+        'ExtLinkReactSample.view.sample4.Panel'
     ],
 
     layout: 'border',
@@ -40,8 +41,12 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
                         menu: 'sample2',
                         leaf: true
                     },{
-                        text: 'サンプル3 (サンプル1と同)',
+                        text: 'サンプル3 (サンプル1と同、cardレイアウトのdefferRender検証)',
                         menu: 'sample3',
+                        leaf: true
+                    },{
+                        text: 'サンプル4 (React-widgets)',
+                        menu: 'sample4',
                         leaf: true
                     }]
                 }
@@ -84,6 +89,9 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
         }, {
             xtype: 'sample3',
             menu: 'sample3'
+        }, {
+            xtype: 'sample4',
+            menu: 'sample4'
         }]
     }],
 

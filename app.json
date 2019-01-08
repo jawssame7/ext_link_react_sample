@@ -223,6 +223,10 @@
             "remote": true
         },
         {
+            "path": "node_modules/react-widgets/dist/react-widgets.js",
+            "remote": true
+        },
+        {
             "path": "app.js",
             "bundle": true
         }
@@ -279,6 +283,10 @@
      *      }
      */
     "css": [
+        {
+            "path": "node_modules/react-widgets/dist/css/react-widgets.css",
+            "bundle": true
+        },
         {
             // this entry uses an ant variable that is the calculated
             // value of the generated output css file for the app,

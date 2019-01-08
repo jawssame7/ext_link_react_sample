@@ -55,12 +55,29 @@ Ext.define('ExtLinkReactSample.view.sample2.Panel', {
                     });
 
                     var likeButton = Ext.require('ExtLinkReactSample.mixin.LikeButton2');
+
+                    // document.querySelectorAll('.like_button_container')
+                    //     .forEach(domContainer => {
+                    //         // Read the comment ID from a data-* attribute.
+                    //         const commentID = parseInt(domContainer.dataset.commentid, 10);
+                    //         ReactDOM.render(
+                    //             e(LikeButton, { commentID: commentID }),
+                    //             domContainer
+                    //         );
+                    //     });
+
+                    document.querySelectorAll('.like_button_container')
+                        .forEach(function (domContainer) {
+                            // Read the comment ID from a data-* attribute.
+                            const commentID = parseInt(domContainer.dataset.commentid, 10);
+                            ReactDOM.render(
+                                e(LikeButton, { commentID: commentID }),
+                                domContainer
+                            );
+                        });
                 }
             }
         }
 
-    }],
-
-
-
+    }]
 });

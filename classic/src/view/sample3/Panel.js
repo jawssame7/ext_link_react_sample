@@ -27,7 +27,29 @@ Ext.define('ExtLinkReactSample.view.sample3.Panel', {
     afterRender: function () {
         this.callParent(arguments);
 
-        var likeButton = Ext.require('ExtLinkReactSample.mixin.LikeButton2');
+        console.log(ReactDOM)
+
+        //var likeButton = Ext.require('ExtLinkReactSample.mixin.LikeButton2');
+
+        // document.querySelectorAll('.like_button_container')
+        //     .forEach(domContainer => {
+        //         // Read the comment ID from a data-* attribute.
+        //         const commentID = parseInt(domContainer.dataset.commentid, 10);
+        //         ReactDOM.render(
+        //             e(LikeButton, { commentID: commentID }),
+        //             domContainer
+        //         );
+        //     });
+
+        document.querySelectorAll('.like_button_container')
+            .forEach(function (domContainer) {
+                // Read the comment ID from a data-* attribute.
+                const commentID = parseInt(domContainer.dataset.commentid, 10);
+                ReactDOM.render(
+                    e(LikeButton, { commentID: commentID }),
+                    domContainer
+                );
+            });
 
     }
 
