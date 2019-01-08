@@ -9,39 +9,88 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
 
     extend: 'Ext.panel.Panel',
 
-    // mixins: [
-    //     'Ext.mixin.Mashup'
-    // ],
+    xtype: 'mainview',
 
-    // requiredScripts: [
-    //     'react/like_button.js'
-    // ],
-
-    // requires: [
-    //     'ExtLinkReactSample.mixin.LikeButton'
-    // ],
-
-    html: [
-        '<div>hoge</div>',
-        //'<div id="like_button_container"></div>'
-        '<p>',
-        '<div class="like_button_container" data-commentid="1"></div>',
-        '</p>',
-        '<p>',
-        'This is the second comment.',
-        '<div class="like_button_container" data-commentid="2"></div>',
-        '</p>',
-        '<p>',
-        'This is the third comment.',
-        '<div class="like_button_container" data-commentid="3"></div>',
-        '</p>'
+    requires: [
+        'ExtLinkReactSample.view.sample.Panel',
+        'ExtLinkReactSample.view.sample2.Panel',
+        'ExtLinkReactSample.view.sample3.Panel'
     ],
+
+    layout: 'border',
+
+    items: [{
+        region: 'west',
+        xtype: 'panel',
+        title: 'サイドナビ',
+        width: 350,
+        layout: 'fit',
+        items: [{
+            xtype: 'treelist',
+            store: {
+                type: 'tree',
+                root: {
+                    expanded: true,
+                    children: [{
+                        text: 'サンプル1 (パネルに表示)',
+                        menu: 'sample1',
+                        leaf: true
+                    },{
+                        text: 'サンプル2 (グリッドのカラムに埋め込み)',
+                        menu: 'sample2',
+                        leaf: true
+                    },{
+                        text: 'サンプル3 (サンプル1と同)',
+                        menu: 'sample3',
+                        leaf: true
+                    }]
+                }
+            },
+            listeners: {
+                selectionchange: function (c, rec) {
+                    var mainView = c.up('mainview'),
+                        contents = mainView.down('#contents'),
+                        activeItem = contents.getLayout().getActiveItem(),
+                        menu = rec.get('menu');
+
+                    if (activeItem.menu !== menu) {
+                        var ret = contents.down(menu);
+                        if (!Ext.isEmpty(ret)) {
+                            contents.setActiveItem(ret);
+                            if (menu === 'sample2') {
+                                ret.down('grid').getView().refresh();
+                            }
+                        }
+                    }
+
+                }
+            }
+        }]
+    }, {
+        region: 'center',
+        xtype: 'container',
+        itemId: 'contents',
+        //layout: 'card',
+        layout   : {
+            type: 'card',
+            deferredRender: true
+        },
+        items: [{
+            xtype: 'sample1',
+            menu: 'sample1'
+        }, {
+            xtype: 'sample2',
+            menu: 'sample2'
+        }, {
+            xtype: 'sample3',
+            menu: 'sample3'
+        }]
+    }],
 
     afterRender: function () {
         this.callParent(arguments);
 
-        var likeButton = Ext.require('ExtLinkReactSample.mixin.LikeButton2');
-
+        this.down('treelist').setSelection(this.down('treelist').getStore().getAt(0));
     }
 
 });

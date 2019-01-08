@@ -2,7 +2,7 @@ Ext.define('ExtLinkReactSample.mixin.LikeButton2', {
 
     singleton: true,
 
-    alternateClassName: 'ExtLinkReactSample.LikeButton',
+    alternateClassName: 'ExtLinkReactSample.LikeButton2',
 
     mixins: [
         'Ext.mixin.Mashup'
