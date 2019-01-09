@@ -9,6 +9,8 @@ Ext.define('ExtLinkReactSample.view.sample4.Panel', {
 
     title: 'sample4',
 
+    bodyPadding: '30',
+
     html: [
         '<div id="app-root"></div>'
     ],
@@ -18,7 +20,7 @@ Ext.define('ExtLinkReactSample.view.sample4.Panel', {
         me.callParent(arguments);
 
         var DropdownList = ReactWidgets.DropdownList;
-console.log(DropdownList, ReactWidgets)
+
 
         // ReactElement作成クラス
         var e = React.createElement;

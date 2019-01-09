@@ -15,7 +15,9 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
         'ExtLinkReactSample.view.sample.Panel',
         'ExtLinkReactSample.view.sample2.Panel',
         'ExtLinkReactSample.view.sample3.Panel',
-        'ExtLinkReactSample.view.sample4.Panel'
+        'ExtLinkReactSample.view.sample4.Panel',
+        'ExtLinkReactSample.view.sample5.Panel',
+        'ExtLinkReactSample.view.sample6.Panel'
     ],
 
     layout: 'border',
@@ -48,6 +50,14 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
                         text: 'サンプル4 (React-widgets)',
                         menu: 'sample4',
                         leaf: true
+                    },{
+                        text: 'サンプル5 (React-widgets) コンボ',
+                        menu: 'sample5',
+                        leaf: true
+                    },{
+                        text: 'サンプル6 (React-widgets) DropdownList',
+                        menu: 'sample6',
+                        leaf: true
                     }]
                 }
             },
@@ -61,10 +71,11 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
                     if (activeItem.menu !== menu) {
                         var ret = contents.down(menu);
                         if (!Ext.isEmpty(ret)) {
+                            ret.setTitle(rec.get('text'));
                             contents.setActiveItem(ret);
-                            if (menu === 'sample2') {
-                                ret.down('grid').getView().refresh();
-                            }
+                            // if (menu === 'sample2') {
+                            //     ret.down('grid').getView().refresh();
+                            // }
                         }
                     }
 
@@ -92,6 +103,12 @@ Ext.define('ExtLinkReactSample.view.main.Main', {
         }, {
             xtype: 'sample4',
             menu: 'sample4'
+        }, {
+            xtype: 'sample5',
+            menu: 'sample5'
+        }, {
+            xtype: 'sample6',
+            menu: 'sample6'
         }]
     }],
 
